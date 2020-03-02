@@ -18,24 +18,62 @@ namespace MatsBinaryTree
             
         }
 
-        public void Add( int v)
+        public void Add(int v)
         {
 
-            Node nextNode = new Node();
-            nextNode.value = v;
-
-            if(root == null)
+            if (root == null)
             {
-                root = nextNode;
+                root = new Node();
+
+                root.value = v;
+                return;
             }
-            
+            Node current;
+            current = root;
+
+            while (true)
+            {
+
+                if (v < current.value)
+                {
+                    if (current.left == null)
+                    {
+                        current.left = new Node();
+                        current.left.value = v;
+                        return;
+                    }
+                    else
+                    {
+                        current = current.left;
+                    }
+
+                }
+                else
+                {
+                   if (current.right == null)
+                    {
+                        current.right = new Node();
+                        current.right.value = v;
+                        return;
+                    }
+                    else
+                    {
+                        current = current.right;
+                    }
+
+                }
 
 
 
+
+
+            }
 
         }
+        public void Search()
+        {
 
-
+        }
 
     }
 }
